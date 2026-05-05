@@ -4,7 +4,7 @@ import pandas as pd
 # Carregar CSV
 df = pd.read_csv("deputados_2022.csv")
 
-st.title("Consulta de Candidatos por Partido")
+st.title("🎢 Consulta de Candidatos por Partido")
 st.set_page_config(
     page_title="Consulta de Candidatos por Partido",
     page_icon="🎢",
