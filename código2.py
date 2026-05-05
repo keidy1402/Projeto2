@@ -4,8 +4,11 @@ import pandas as pd
 # Carregar CSV
 df = pd.read_csv("deputados_2022.csv")
 
-st.title("Consulta de Candidatos por Partido")
-page_icon=🎢
+st.set_page_config(
+    page_title="Consulta de Candidatos por Partido",
+    page_icon="🎢",
+    layout="wide"
+)
 
 # Input do usuário
 sigla = st.text_input("Digite a sigla do partido:")
