@@ -1,24 +1,31 @@
 import streamlit as st
 import pandas as pd
 
-df = pd.read_csv("deputados_2022.csv")
-st. dataframe(df)
+# Carregar CSV
+df = pd.read_csv("candidatos.csv")
 
-#Título do app
 st.title("Consulta de Candidatos por Partido")
 
-#Carregar banco de dados CSV
-df = pd.read_csv("deputados_2022.csv")
-
-#Entrada do usuário
+# Input do usuário
 sigla = st.text_input("Digite a sigla do partido:")
 
-#Filtragem
+# Resultado filtrado
 if sigla:
-    resultado = df[df["partido"].str.upper() == sigla.upper()]
+    resultado = df[
+        df["PARTIDO"].str.strip().str.upper() == sigla.strip().upper()
+    ]
 
     if not resultado.empty:
-        st.subheader(f"Candidatos do partido {sigla.upper()}:")
+        st.subheader(f"Candidatos do partido {sigla.upper()}")
         st.dataframe(resultado)
     else:
-        st.warning("Nenhum candidato encontrado para essa sigla.")
+        st.warning("Nenhum candidato encontrado.")
+
+# ------------------------
+# GRÁFICO GERAL ABAIXO
+# ------------------------
+st.subheader("Gráfico Geral de Candidatos por Partido")
+
+grafico = df["PARTIDO"].value_counts()
+
+st.bar_chart(grafico)
