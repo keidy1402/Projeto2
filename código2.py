@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 # Carregar CSV
-df = pd.read_csv("candidatos.csv")
+df = pd.read_csv("deputados_2022.csv")
 
 st.title("Consulta de Candidatos por Partido")
 
@@ -12,7 +12,7 @@ sigla = st.text_input("Digite a sigla do partido:")
 # Resultado filtrado
 if sigla:
     resultado = df[
-        df["PARTIDO"].str.strip().str.upper() == sigla.strip().upper()
+        df["partido"].str.strip().str.upper() == sigla.strip().upper()
     ]
 
     if not resultado.empty:
@@ -26,6 +26,6 @@ if sigla:
 # ------------------------
 st.subheader("Gráfico Geral de Candidatos por Partido")
 
-grafico = df["PARTIDO"].value_counts()
+grafico = df["partido"].value_counts()
 
 st.bar_chart(grafico)
