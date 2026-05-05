@@ -15,7 +15,7 @@ sigla = st.text_input("Digite a sigla do partido:")
 
 #Filtragem
 if sigla:
-    resultado = df[df["PARTIDO"].str.upper() == sigla.upper()]
+    resultado = df[df["partido"].str.upper() == sigla.upper()]
 
     if not resultado.empty:
         st.subheader(f"Candidatos do partido {sigla.upper()}:")
