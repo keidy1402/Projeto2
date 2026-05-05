@@ -8,7 +8,7 @@ st. dataframe(df)
 st.title("Consulta de Candidatos por Partido")
 
 #Carregar banco de dados CSV
-df = pd.read_csv("candidatos.csv")
+df = pd.read_csv("deputados_2022.csv")
 
 #Entrada do usuário
 sigla = st.text_input("Digite a sigla do partido:")
